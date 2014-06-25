@@ -3,3 +3,19 @@
 <article>
     <%- doc.asHtml(ctx) %>
 </article>
+
+<% if (doc.linkedDocuments.length > 0) { %>
+	<hr>
+	<aside>
+		<h2>Linked documents</h2>
+		<ul>
+			<% doc.linkedDocuments.forEach(function(linkedDocument){ %>
+				<li>
+					<a href="/documents/<%= linkedDocument.id %>/<%= linkedDocument.slug %>">
+						<%= linkedDocument.slug %>
+					</a>
+				</li>
+			<% }); %>
+		</ul>
+	</aside>
+<% } %>
